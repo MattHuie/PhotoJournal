@@ -53,7 +53,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHm-Bg-2ya">
-                                                    <rect key="frame" x="18" y="399" width="337" height="24"/>
+                                                    <rect key="frame" x="18" y="389" width="337" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                             <constraint firstItem="j3O-wa-UlT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SGl-oW-ByO" secondAttribute="leading" symbolic="YES" id="TER-S0-RF5"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="iHm-Bg-2ya" secondAttribute="trailing" constant="10" id="UNt-vD-zM1"/>
                                             <constraint firstItem="j3O-wa-UlT" firstAttribute="top" secondItem="DSm-zC-34F" secondAttribute="bottom" constant="5" id="WoW-QV-wOL"/>
-                                            <constraint firstItem="iHm-Bg-2ya" firstAttribute="top" secondItem="YCi-Gu-OIu" secondAttribute="bottom" constant="30" id="Y0I-tJ-0ZC"/>
+                                            <constraint firstItem="iHm-Bg-2ya" firstAttribute="top" secondItem="YCi-Gu-OIu" secondAttribute="bottom" constant="20" id="Y0I-tJ-0ZC"/>
                                             <constraint firstItem="iHm-Bg-2ya" firstAttribute="leading" secondItem="SGl-oW-ByO" secondAttribute="leadingMargin" constant="10" id="dog-vg-KfH"/>
                                             <constraint firstItem="DSm-zC-34F" firstAttribute="width" secondItem="SGl-oW-ByO" secondAttribute="width" id="eXy-Cn-e4m"/>
                                             <constraint firstItem="YCi-Gu-OIu" firstAttribute="top" secondItem="DSm-zC-34F" secondAttribute="bottom" constant="40" id="j6r-B4-ihw"/>

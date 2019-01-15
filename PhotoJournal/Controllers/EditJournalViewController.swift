@@ -15,6 +15,7 @@ class EditJournalViewController: UIViewController {
     @IBOutlet weak var descriptionView: UITextView!
     
     private var imagePickerView: UIImagePickerController!
+    private var originalImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,6 @@ class EditJournalViewController: UIViewController {
         }
     }
     
-    private func savePhotoJournal(image: UIImage) {
-        if let imageData = image.jpegData(compressionQuality: 0.5) {
-            let photoJournal = PhotoJournal.init(createdAt: "date", imageData: imageData, description: "cool wallpaper")
-            PhotoJournalModel.savePhotoJournal(photoJournal: photoJournal)
-        }
-    }
     
     private func showImagePickerController() {
         present(imagePickerView, animated: true, completion: nil)
@@ -67,6 +62,21 @@ class EditJournalViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        guard let photoDescription = descriptionView.text else { fatalError("title or description is nil") }
+        let date = Date()
+        let isoDateFormatter = ISO8601DateFormatter()
+        isoDateFormatter.formatOptions = [.withFullDate,
+                                          .withFullTime,
+                                          .withInternetDateTime,
+                                          .withTimeZone,
+                                          .withDashSeparatorInDate]
+        let timestamp = isoDateFormatter.string(from: date)
+        
+        if let imagedata = originalImage?.jpegData(compressionQuality: 0.5) {
+            let photoPost = PhotoJournal.init(createdAt: timestamp, imageData: imagedata, description: photoDescription)
+            PhotoJournalModel.addPhotoJournal(photoPost: photoPost)
+        }
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -79,7 +89,8 @@ extension EditJournalViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageView.image = image
-            savePhotoJournal(image: image)
+            //savePhotoJournal(image: image)
+            originalImage = image
         } else {
             print("original image is nil")
         }

@@ -9,12 +9,12 @@
 import Foundation
 
 final class PhotoJournalModel {
-    static let filename = "PhotoJournalList.plist"
+    static let filename = "PhotoList.plist"
     private static var photoJournal = [PhotoJournal]()
     
     private init() {}
     
-    static func savePhotoJournal(photoJournal: PhotoJournal) {
+    static func savePhotoJournal() {
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
         do {
             let data = try PropertyListEncoder().encode(photoJournal)
@@ -39,6 +39,13 @@ final class PhotoJournalModel {
         } else {
             print("getPhotoJournal - \(filename) does not exist")
         }
+        photoJournal = photoJournal.sorted {$0.date > $1.date}
         return photoJournal
     }
+    
+    static func addPhotoJournal(photoPost: PhotoJournal) {
+        photoJournal.append(photoPost)
+        savePhotoJournal()
+    }
+    
 }
