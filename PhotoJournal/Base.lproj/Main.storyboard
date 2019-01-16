@@ -45,6 +45,9 @@
                                                     <state key="normal" title=". . .">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="actionSheet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S7Z-F1-1AY"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCi-Gu-OIu">
                                                     <rect key="frame" x="18" y="339" width="337" height="30"/>
@@ -60,6 +63,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="DSm-zC-34F" firstAttribute="centerX" secondItem="SGl-oW-ByO" secondAttribute="centerX" id="KUF-4V-p1a"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="j3O-wa-UlT" secondAttribute="trailing" constant="5" id="QFH-eY-jv5"/>
@@ -76,7 +80,7 @@
                                             <constraint firstItem="DSm-zC-34F" firstAttribute="centerY" secondItem="SGl-oW-ByO" secondAttribute="centerY" multiplier="0.7" id="v7O-G2-i5D"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="moreOptionsButton" destination="j3O-wa-UlT" id="S0q-Kz-Ijs"/>
+                                            <outlet property="moreOptionsButton" destination="j3O-wa-UlT" id="x7q-H7-BKI"/>
                                             <outlet property="photoImage" destination="DSm-zC-34F" id="w7X-iO-y1g"/>
                                             <outlet property="timestampLabel" destination="iHm-Bg-2ya" id="daq-qt-WyS"/>
                                             <outlet property="titleLabel" destination="YCi-Gu-OIu" id="Cv8-te-1kP"/>
@@ -163,19 +167,29 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="dIP-8r-F8j">
                                 <rect key="frame" x="0.0" y="264" width="375" height="359"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4G-bv-YhZ">
+                                <rect key="frame" x="0.0" y="264" width="375" height="359"/>
+                                <connections>
+                                    <action selector="resignKeyboard:" destination="lp8-R3-h7a" eventType="touchUpInside" id="ped-nW-k7I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="S4G-bv-YhZ" firstAttribute="top" secondItem="VhM-FC-c4m" secondAttribute="bottom" id="0Ur-pQ-grg"/>
+                            <constraint firstItem="WQn-qh-9M8" firstAttribute="trailing" secondItem="S4G-bv-YhZ" secondAttribute="trailing" id="13x-PE-bcl"/>
                             <constraint firstItem="ixd-Ui-vuU" firstAttribute="bottom" secondItem="WQn-qh-9M8" secondAttribute="bottom" id="3Nv-1p-cac"/>
                             <constraint firstItem="WQn-qh-9M8" firstAttribute="trailing" secondItem="dIP-8r-F8j" secondAttribute="trailing" id="A42-a9-riN"/>
                             <constraint firstItem="T0t-Jb-d2Z" firstAttribute="trailing" secondItem="ixd-Ui-vuU" secondAttribute="trailing" id="EH0-e8-OdE"/>
                             <constraint firstItem="T0t-Jb-d2Z" firstAttribute="leading" secondItem="VhM-FC-c4m" secondAttribute="leading" id="HX0-Sw-Bvp"/>
+                            <constraint firstItem="S4G-bv-YhZ" firstAttribute="leading" secondItem="WQn-qh-9M8" secondAttribute="leading" id="Pd5-mC-jQ9"/>
                             <constraint firstItem="T0t-Jb-d2Z" firstAttribute="top" secondItem="WQn-qh-9M8" secondAttribute="top" id="YL7-7O-yvb"/>
                             <constraint firstItem="VhM-FC-c4m" firstAttribute="trailing" secondItem="WQn-qh-9M8" secondAttribute="trailing" id="b6I-lO-UYr"/>
                             <constraint firstItem="VhM-FC-c4m" firstAttribute="leading" secondItem="WQn-qh-9M8" secondAttribute="leading" id="bUc-ni-YiQ"/>
                             <constraint firstItem="T0t-Jb-d2Z" firstAttribute="leading" secondItem="ixd-Ui-vuU" secondAttribute="leading" id="hrY-tW-UI5"/>
                             <constraint firstItem="dIP-8r-F8j" firstAttribute="leading" secondItem="WQn-qh-9M8" secondAttribute="leading" id="hwL-4h-rNq"/>
                             <constraint firstItem="ixd-Ui-vuU" firstAttribute="top" secondItem="dIP-8r-F8j" secondAttribute="bottom" id="hze-e0-QUM"/>
+                            <constraint firstItem="ixd-Ui-vuU" firstAttribute="top" secondItem="S4G-bv-YhZ" secondAttribute="bottom" id="oti-hm-YfA"/>
                             <constraint firstItem="T0t-Jb-d2Z" firstAttribute="trailing" secondItem="VhM-FC-c4m" secondAttribute="trailing" id="s5i-W4-qy5"/>
                             <constraint firstItem="VhM-FC-c4m" firstAttribute="top" secondItem="T0t-Jb-d2Z" secondAttribute="bottom" id="sCT-9y-AoZ"/>
                             <constraint firstItem="dIP-8r-F8j" firstAttribute="top" secondItem="VhM-FC-c4m" secondAttribute="bottom" id="zUs-EG-dpd"/>

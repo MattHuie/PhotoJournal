@@ -14,5 +14,9 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var moreOptionsButton: UIButton!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+
+    
+    
+    
     
 }

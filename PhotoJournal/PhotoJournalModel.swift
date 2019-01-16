@@ -10,6 +10,7 @@ import Foundation
 
 final class PhotoJournalModel {
     static let filename = "PhotoList.plist"
+    private static var photos = [PhotoJournal]()
     private static var photoJournal = [PhotoJournal]()
     
     private init() {}
@@ -45,6 +46,17 @@ final class PhotoJournalModel {
     
     static func addPhotoJournal(photoPost: PhotoJournal) {
         photoJournal.append(photoPost)
+        savePhotoJournal()
+    }
+    
+    static func deletePhotoJournal(photoJournal: PhotoJournal, index: Int) {
+        self.photoJournal.remove(at: index)
+        savePhotoJournal()
+    }
+    
+    static func editPhotoJournal(photoJournal: PhotoJournal, index: Int) {
+        self.photoJournal.remove(at: index)
+        self.photoJournal.insert(photoJournal, at: index)
         savePhotoJournal()
     }
     

@@ -20,18 +20,7 @@ class EditJournalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImage()
-        //updateUI()
-
-     
     }
-//    private func updateUI() {
-//        if let photoJournal = PhotoJournalModel.getPhotoJournal() {
-//            let image = UIImage(data: photoJournal.imageData)
-//            imageView.image = image
-//        } else {
-//            print("photo journal does not exist")
-//        }
-//    }
     
     private func setupImage() {
         imagePickerView = UIImagePickerController()
@@ -40,7 +29,6 @@ class EditJournalViewController: UIViewController {
             cameraButton.isEnabled = false
         }
     }
-    
     
     private func showImagePickerController() {
         present(imagePickerView, animated: true, completion: nil)
@@ -60,6 +48,11 @@ class EditJournalViewController: UIViewController {
         imagePickerView.sourceType = .camera
         showImagePickerController()
     }
+    
+    @IBAction func resignKeyboard(_ sender: UIButton) {
+        descriptionView.resignFirstResponder()
+    }
+    
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         guard let photoDescription = descriptionView.text else { fatalError("title or description is nil") }
@@ -89,7 +82,6 @@ extension EditJournalViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageView.image = image
-            //savePhotoJournal(image: image)
             originalImage = image
         } else {
             print("original image is nil")

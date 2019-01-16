@@ -22,10 +22,44 @@ class PhotoJournalViewController: UIViewController {
         
     }
     
+    func reload() {
+        photoJournal = PhotoJournalModel.getPhotoJournal()
+        photoCollectionView.reloadData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         photoCollectionView.reloadData()
         photoJournal = PhotoJournalModel.getPhotoJournal()
     }
+    
+    @IBAction func actionSheet(_ sender: UIButton) {
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            PhotoJournalModel.deletePhotoJournal(photoJournal: self.photoJournal[sender.tag], index: sender.tag)
+            self.reload()
+        }
+        let editAction = UIAlertAction(title: "Edit", style: .default) { _ in
+            
+            
+        }
+        let shareAction = UIAlertAction(title: "Share", style: .default) { _ in
+            var image = [UIImage()]
+            if let imageToShare = UIImage(data: self.photoJournal[sender.tag].imageData) {
+                image = [imageToShare]
+            }
+            let activityViewController = UIActivityViewController(activityItems: image, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(editAction)
+        optionMenu.addAction(shareAction)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
 
 
 }
@@ -41,7 +75,7 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
         cell.photoImage.image = UIImage(data: photoToSet.imageData)
         cell.titleLabel.text = photoToSet.description
         cell.timestampLabel.text = photoToSet.dateFormattedString
-        
+        cell.moreOptionsButton.tag = indexPath.row
         return cell
     }
     
@@ -49,5 +83,7 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
 }
 
 extension PhotoJournalViewController: UICollectionViewDelegateFlowLayout {
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: 300, height: 400)
+    }
 }
