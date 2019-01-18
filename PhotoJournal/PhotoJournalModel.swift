@@ -54,10 +54,5 @@ final class PhotoJournalModel {
         savePhotoJournal()
     }
     
-    static func editPhotoJournal(photoJournal: PhotoJournal, index: Int) {
-        self.photoJournal.remove(at: index)
-        self.photoJournal.insert(photoJournal, at: index)
-        savePhotoJournal()
-    }
     
 }

@@ -16,7 +16,6 @@ class PhotoJournalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(DataPersistenceManager.documentsDirectory())
         photoCollectionView.dataSource = self
         photoCollectionView.delegate = self
         
