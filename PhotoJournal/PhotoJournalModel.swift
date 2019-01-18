@@ -45,11 +45,11 @@ final class PhotoJournalModel {
     }
     
     static func addPhotoJournal(photoPost: PhotoJournal) {
-        photoJournal.append(photoPost)
+        self.photoJournal.append(photoPost)
         savePhotoJournal()
     }
     
-    static func deletePhotoJournal(photoJournal: PhotoJournal, index: Int) {
+    static func deletePhotoJournal(index: Int) {
         self.photoJournal.remove(at: index)
         savePhotoJournal()
     }

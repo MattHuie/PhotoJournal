@@ -16,10 +16,28 @@ class EditJournalViewController: UIViewController {
     
     private var imagePickerView: UIImagePickerController!
     private var originalImage: UIImage!
+    var placeholderText = "Description"
+    var photos: PhotoJournal!
+    var photoIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImage()
+        if let photos = photos {
+            imageView.image = UIImage(data:photos.imageData)
+            originalImage = imageView.image
+            descriptionView.text = photos.description
+            descriptionView.textColor = .black
+        } else {
+            originalImage = imageView.image
+            setupUI()
+        }
+        
+    }
+    private func setupUI() {
+        descriptionView.delegate = self
+        descriptionView.text = placeholderText
+        descriptionView.textColor = .lightGray
     }
     
     private func setupImage() {
@@ -55,6 +73,9 @@ class EditJournalViewController: UIViewController {
     
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        if let index = photoIndex {
+            PhotoJournalModel.deletePhotoJournal(index: index)
+        }
         guard let photoDescription = descriptionView.text else { fatalError("title or description is nil") }
         let date = Date()
         let isoDateFormatter = ISO8601DateFormatter()
@@ -68,6 +89,7 @@ class EditJournalViewController: UIViewController {
         if let imagedata = originalImage?.jpegData(compressionQuality: 0.5) {
             let photoPost = PhotoJournal.init(createdAt: timestamp, imageData: imagedata, description: photoDescription)
             PhotoJournalModel.addPhotoJournal(photoPost: photoPost)
+            PhotoJournalModel.savePhotoJournal()
         }
         dismiss(animated: true, completion: nil)
     }
@@ -75,7 +97,7 @@ class EditJournalViewController: UIViewController {
     
 }
 
-extension EditJournalViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditJournalViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
@@ -87,5 +109,11 @@ extension EditJournalViewController: UIImagePickerControllerDelegate, UINavigati
             print("original image is nil")
         }
         dismiss(animated: true, completion: nil)
+    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == placeholderText {
+            textView.text = ""
+            textView.textColor = .black
+        }
     }
 }

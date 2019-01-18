@@ -21,7 +21,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6gr-IQ-kJs">
                                 <rect key="frame" x="0.0" y="20" width="375" height="569"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YGV-hp-IDf">
                                     <size key="itemSize" width="373" height="443"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -37,7 +37,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="DSm-zC-34F">
-                                                    <rect key="frame" x="0.0" y="11" width="373" height="288"/>
+                                                    <rect key="frame" x="18.5" y="11" width="336" height="288"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3O-wa-UlT">
                                                     <rect key="frame" x="330" y="304" width="30" height="30"/>
@@ -50,20 +50,20 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCi-Gu-OIu">
-                                                    <rect key="frame" x="18" y="339" width="337" height="30"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                    <rect key="frame" x="18" y="339" width="337" height="23"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHm-Bg-2ya">
-                                                    <rect key="frame" x="18" y="389" width="337" height="24"/>
+                                                    <rect key="frame" x="18" y="382" width="337" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="DSm-zC-34F" firstAttribute="centerX" secondItem="SGl-oW-ByO" secondAttribute="centerX" id="KUF-4V-p1a"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="j3O-wa-UlT" secondAttribute="trailing" constant="5" id="QFH-eY-jv5"/>
@@ -73,7 +73,7 @@
                                             <constraint firstItem="j3O-wa-UlT" firstAttribute="top" secondItem="DSm-zC-34F" secondAttribute="bottom" constant="5" id="WoW-QV-wOL"/>
                                             <constraint firstItem="iHm-Bg-2ya" firstAttribute="top" secondItem="YCi-Gu-OIu" secondAttribute="bottom" constant="20" id="Y0I-tJ-0ZC"/>
                                             <constraint firstItem="iHm-Bg-2ya" firstAttribute="leading" secondItem="SGl-oW-ByO" secondAttribute="leadingMargin" constant="10" id="dog-vg-KfH"/>
-                                            <constraint firstItem="DSm-zC-34F" firstAttribute="width" secondItem="SGl-oW-ByO" secondAttribute="width" id="eXy-Cn-e4m"/>
+                                            <constraint firstItem="DSm-zC-34F" firstAttribute="width" secondItem="SGl-oW-ByO" secondAttribute="width" multiplier="0.9" id="eXy-Cn-e4m"/>
                                             <constraint firstItem="YCi-Gu-OIu" firstAttribute="top" secondItem="DSm-zC-34F" secondAttribute="bottom" constant="40" id="j6r-B4-ihw"/>
                                             <constraint firstItem="DSm-zC-34F" firstAttribute="height" secondItem="SGl-oW-ByO" secondAttribute="height" multiplier="0.65" id="mw1-nd-wng"/>
                                             <constraint firstItem="YCi-Gu-OIu" firstAttribute="leading" secondItem="SGl-oW-ByO" secondAttribute="leadingMargin" constant="10" id="t5P-zY-WHd"/>
@@ -117,7 +117,7 @@
         <!--Edit Journal View Controller-->
         <scene sceneID="W2G-lv-Po7">
             <objects>
-                <viewController id="lp8-R3-h7a" customClass="EditJournalViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditJournalVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lp8-R3-h7a" customClass="EditJournalViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ydz-oY-S2y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
